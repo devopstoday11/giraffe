@@ -89,7 +89,6 @@ storiesOf('Line Graph', module)
     const legendColorizeRows = tooltipColorizeRowsKnob()
 
     const config: Config = {
-      table,
       valueFormatters: {
         _time: timeFormatter({timeZone, format: timeFormat}),
         _value: val =>
@@ -112,6 +111,7 @@ storiesOf('Line Graph', module)
       legendColorizeRows,
       layers: [
         {
+          table,
           type: 'line',
           x,
           y,
