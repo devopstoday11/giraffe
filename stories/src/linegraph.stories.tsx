@@ -182,7 +182,6 @@ storiesOf('Line Graph', module)
     const legendColorizeRows = tooltipColorizeRowsKnob()
 
     const config: Config = {
-      fluxResponse: staticData,
       valueFormatters: {
         _time: timeFormatter({timeZone, format: timeFormat}),
         _value: val => `${Math.round(val)}`,
@@ -196,6 +195,7 @@ storiesOf('Line Graph', module)
       legendColorizeRows,
       layers: [
         {
+          fluxResponse: staticData,
           type: 'line',
           x,
           y,
@@ -261,7 +261,6 @@ storiesOf('Line Graph', module)
     const legendColorizeRows = tooltipColorizeRowsKnob()
 
     const config: Config = {
-      fluxResponse: csv,
       valueFormatters: {
         _time: timeFormatter({timeZone, format: timeFormat}),
         _value: val => `${Math.round(val)}`,
@@ -275,6 +274,7 @@ storiesOf('Line Graph', module)
       legendColorizeRows,
       layers: [
         {
+          fluxResponse: csv,
           type: 'line',
           x,
           y,

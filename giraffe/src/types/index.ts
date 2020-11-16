@@ -45,7 +45,7 @@ export interface Config {
   yScale?: string
 
   // table?: Table
-  fluxResponse?: string
+  // fluxResponse?: string
   layers: LayerConfig[]
 
   // The x domain of the plot can be explicitly set. If this option is passed,
@@ -185,6 +185,7 @@ export type LayerConfig =
   | GeoLayerConfig
 
 export interface LayerConfiguration {
+  fluxResponse?: string
   table?: Table
   type: string
 }
