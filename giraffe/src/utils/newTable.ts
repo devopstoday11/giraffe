@@ -99,9 +99,9 @@ class SimpleTable implements Table {
     }
 
     if (data.length !== this.length) {
-      throw new Error(
-        `expected column of length ${this.length}, got column of length ${data.length} instead`
-      )
+      // throw new Error(
+      //   `expected column of length ${this.length}, got column of length ${data.length} instead`
+      // )
     }
 
     const table = new SimpleTable(this.length)
