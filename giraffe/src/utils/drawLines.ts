@@ -54,7 +54,6 @@ export const drawLines = ({
       .defined((i: any) => isDefined(xs[i]) && isDefined(ys[i]))
       .curve(CURVES[interpolation] || curveLinear)
 
-    console.log('fill style', fill)
     context.strokeStyle = fill
     context.beginPath()
     lineGenerator(range(0, xs.length))

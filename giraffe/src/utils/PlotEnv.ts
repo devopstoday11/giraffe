@@ -52,8 +52,6 @@ export class PlotEnv {
 
     this._config = mergeConfigs(config, prevConfig)
 
-    console.log('config', this._config)
-
     if (areUncontrolledDomainsStale(this._config, prevConfig)) {
       this._xDomain = null
       this._yDomain = null

@@ -2,7 +2,7 @@ import * as React from 'react'
 import {storiesOf} from '@storybook/react'
 import {withKnobs, number, select, boolean, text} from '@storybook/addon-knobs'
 
-import {Config, Plot, timeFormatter} from '../../giraffe/src'
+import {Config, Plot, timeFormatter, fromFlux} from '../../giraffe/src'
 import {
   SOLID_GREEN,
   NINETEEN_EIGHTY_FOUR,
@@ -13,10 +13,10 @@ import {
   PlotContainer,
   colorSchemeKnob,
   fillKnob,
-  // findStringColumns,
+  findStringColumns,
   interpolationKnob,
   legendFontKnob,
-  // showAxesKnob,
+  showAxesKnob,
   tickFontKnob,
   timeZoneKnob,
   tooltipColorizeRowsKnob,
@@ -27,13 +27,13 @@ import {
   yScaleKnob,
 } from './helpers'
 
-// import {tooltipFalsyValues} from './data/fluxCSV'
+import {tooltipFalsyValues} from './data/fluxCSV'
 
-// const maxValue = Math.random() * Math.floor(200)
+const maxValue = Math.random() * Math.floor(200)
 
 storiesOf('Line Graph', module)
   .addDecorator(withKnobs)
-  /*.add('User defined ticks', () => {
+  .add('User defined ticks', () => {
     let table = getRandomTable(maxValue)
     const xTickStart = number('xTickStart', new Date().getTime())
     const xTickStep = number('xTickStep', 200_000)
@@ -136,7 +136,7 @@ storiesOf('Line Graph', module)
         <Plot config={config} />
       </PlotContainer>
     )
-  })*/
+  })
   .add('Arbitrary graph layers', () => {
     const timeFormat = select(
       'Time Format',
@@ -195,8 +195,6 @@ storiesOf('Line Graph', module)
     const xTwo = xKnob(tableTwo)
     const yTwo = yKnob(tableTwo)
 
-    console.log('one', tableOne, 'two', tableTwo)
-
     const config: Config = {
       valueFormatters: {
         _time: timeFormatter({timeZone, format: timeFormat}),
@@ -250,7 +248,7 @@ storiesOf('Line Graph', module)
       </PlotContainer>
     )
   })
-/*.add('Static CSV', () => {
+  .add('Static CSV', () => {
     const staticData = select(
       'Static CSV',
       {tooltipFalsyValues},
@@ -332,7 +330,7 @@ storiesOf('Line Graph', module)
         <Plot config={config} />
       </PlotContainer>
     )
-  })*/
+  })
 /*.add('Custom CSV', () => {
     const csv = text('Paste CSV here:', '')
     let table = fromFlux(csv).table
